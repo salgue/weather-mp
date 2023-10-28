@@ -1,25 +1,39 @@
 <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Personal data
-            </mat-panel-title>
-            <mat-panel-description>
-                Type your name and age
-                <mat-icon>account_circle</mat-icon>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <mat-form-field>
-            <mat-label>First name</mat-label>
-            <input matInput>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Age</mat-label>
-            <input matInput type="number" min="1">
-        </mat-form-field>
-
-    </mat-expansion-panel>
-
+  <mat-expansion-panel *ngFor="let dashboard of dashboardList">
+    <mat-expansion-panel-header>
+      <mat-panel-description class="header">
+        {{ dashboard.city }}
+        <mat-icon>favorite</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="content">
+      <div class="row carousel">
+        <div *ngFor="let item of dashboard.weathers" class="col-md-2 col-sm-6">
+          <app-weather-card [weather]="item"></app-weather-card>
+          <!-- <mat-card class="example-card card">
+                    <mat-card-header>
+                        <mat-card-title class="title">{{
+                            item.date | date : "MMMM dd"
+                            }}</mat-card-title>
+                    </mat-card-header>
+                    <p class="temperature">{{ item.temperature | number : "1.0-0" }}°C</p>
+                    <div class="icon">
+                        <img mat-card-md-image [src]="item.icon" [alt]="item.description" />
+                    </div>
+                    <mat-card-content class="day-information">
+                        <p>
+                            <b>Max: </b>{{ item.maxTemperature | number : "1.0-0" }}°C
+                            <b>Min: </b>{{ item.minTemperature | number : "1.0-0" }}°C
+                        </p>
+                        <p>{{ item.description | titlecase }}</p>
+                        <p>Wind speed: {{ item.speed }}</p>
+                    </mat-card-content>
+                </mat-card> -->
+        </div>
+      </div>
+    </div>
+    <mat-action-row>
+      <button mat-button class="remove-favorite"><mat-icon>favorite_border</mat-icon> Remove as Favorite</button>
+    </mat-action-row>
+  </mat-expansion-panel>
 </mat-accordion>

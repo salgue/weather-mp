@@ -19,6 +19,10 @@ export class FavoritesService {
     return JSON.parse(this.cookieService.getCookie('favorite'));
   }
 
+  getFavoriteCookieValue() {
+    return this.cookieService.getCookie('favorite');
+  }
+
   setAsFavorite(valueToStore: string) {
     if (!this.verifyFavoriteCookie()) {
       this.setFavoriteCookie(JSON.stringify([valueToStore]));

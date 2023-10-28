@@ -11,21 +11,11 @@ import { DailyWeatherUrlQuery } from 'src/app/models/daily-weather-url-query';
 })
 export class WeathersListComponent implements OnDestroy {
   constructor(
-    private weatherDataService: WeatherDataService,
-    private dialogService: DialogService,
+    private weatherDataService: WeatherDataService
   ) { }
   
   ngOnDestroy(): void {
     this.weatherDataService.resetValues();
-  }
-
-  openWeatherModal(searchDate: string) {
-    const searchValue = this.weatherDataService.searchValue;
-    const dataQuery = <DailyWeatherUrlQuery>{
-      searchDate,
-      searchValue
-    }
-    this.dialogService.openDialog(ViewWeatherInformationComponent, dataQuery);
   }
 
   get dailyForecast(): any[] {

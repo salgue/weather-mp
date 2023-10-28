@@ -1,0 +1,19 @@
+<mat-card class="example-card card" (click)="openWeatherModal(weather.date)">
+    <mat-card-header>
+        <mat-card-title class="title">{{
+            weather.date | date : "MMMM dd"
+            }}</mat-card-title>
+    </mat-card-header>
+    <p class="temperature">{{ weather.temperature | number : "1.0-0" }}°C</p>
+    <div class="icon">
+        <img mat-card-md-image [src]="weather.icon" [alt]="weather.description" />
+    </div>
+    <mat-card-content class="day-information">
+        <p>
+            <b>Max: </b>{{ weather.maxTemperature | number : "1.0-0" }}°C
+            <b>Min: </b>{{ weather.minTemperature | number : "1.0-0" }}°C
+        </p>
+        <p>{{ weather.description | titlecase }}</p>
+        <p>Wind speed: {{ weather.speed }}</p>
+    </mat-card-content>
+</mat-card>
