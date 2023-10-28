@@ -15,7 +15,9 @@ export class WeatherDataService {
       .getWeatherByCityorZipCode(weatherUrlQuery)
       .subscribe({
         next: (response: WeeklyWeather[]) => {
+          console.log(response);
           this._dailyForecast = response;
+          console.log(this._dailyForecast);
         },
       });
   }

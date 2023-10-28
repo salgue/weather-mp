@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { WeatherSearchComponent } from './weatherSection/weather-search/weather-search.component';
+import { WeathersListComponent } from './weatherSection/weathers-list/weathers-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WeatherSearchComponent } from './weatherSection/weather-search/weather-
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    WeatherSearchComponent
+    WeatherSearchComponent,
+    WeathersListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
