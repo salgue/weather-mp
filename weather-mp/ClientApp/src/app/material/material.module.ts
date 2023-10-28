@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [],
@@ -29,6 +30,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatGridListModule,
     MatCheckboxModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     MatButtonModule,
@@ -43,7 +45,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTableModule,
     MatGridListModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class MaterialModule {}

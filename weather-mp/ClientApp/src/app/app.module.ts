@@ -17,6 +17,7 @@ import { ViewWeatherInformationComponent } from './weatherSection/view-weather-i
 import { DashboardsComponent } from './dashboards/dashboards.component';
 import { WeatherCardComponent } from './shared/weather-card/weather-card.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { SpinnerDialogComponent } from './shared/spinner-dialog/spinner-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     ViewWeatherInformationComponent,
     DashboardsComponent,
     WeatherCardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SpinnerDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

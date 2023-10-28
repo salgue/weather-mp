@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 a {
   color: #0366d6;
 }
@@ -16,5 +16,63 @@ code {
   border-color: #1861ac;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #498da5;
+  background-color: #e1e2e3;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #498da5;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgrey;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.title-container {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+mat-dialog-container {
+  .mdc-dialog__container {
+    height: 73vh;
+  }
+}
+
+mat-spinner {
+  .mat-mdc-progress-spinner,
+  .mdc-circular-progress__indeterminate-circle-graphic {
+    --mdc-circular-progress-active-indicator-color: #498da5;
+    color: #498da5 !important;
+  }
+}
