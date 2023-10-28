@@ -8,6 +8,9 @@
           name="searchValue"
           placeholder="City Name or ZipCode"
         />
+        <mat-error *ngIf="searchValueControl.errors && searchValueControl.errors.required">
+          Must enter a value for search.
+        </mat-error>
       </mat-form-field>
       <button mat-button class="search-button" (click)="search()">
         <mat-icon>search</mat-icon>

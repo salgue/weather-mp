@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FavoritesService } from '../favorites/favorites.service';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class WeatherFormFactoryService {
 
   private _initializeForm() {
     this._searchForm = this.formBuilder.group({
-      searchValue: [''],
+      searchValue: ['', Validators.required],
       favorite: [false],
     });
   }

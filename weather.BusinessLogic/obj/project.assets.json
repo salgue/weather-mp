@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
       "projectName": "weather.BusinessLogic",
-      "projectPath": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
+      "projectPath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
       "packagesPath": "C:\\Users\\missa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessLogic\\obj\\",
+      "outputPath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",

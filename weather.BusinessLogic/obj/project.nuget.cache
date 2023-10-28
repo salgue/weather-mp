@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Q2p3PJqqX9z3V6Sr3AuiSXFo5BSYF9qvxFlxeFE9LWbuIYzwx8khwCo8jGSbVRxI7h4nS/We1U9LK2QfDdKpg==",
+  "dgSpecHash": "CXjB8lXzHHjf7USd91HBOQxTMkA9L18I/zWMZS7WsJd3gA94Tf/w3VgVNTRZdyitnanHMfpv6Lj840PHALbIjA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
+  "projectFilePath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessLogic\\weather.BusinessLogic.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

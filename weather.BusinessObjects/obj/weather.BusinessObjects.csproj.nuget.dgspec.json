@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj": {}
+    "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj": {}
   },
   "projects": {
-    "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj": {
+    "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj",
+        "projectUniqueName": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj",
         "projectName": "weather.BusinessObjects",
-        "projectPath": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj",
+        "projectPath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj",
         "packagesPath": "C:\\Users\\missa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\missa\\source\\repos\\weather-mp\\weather.BusinessObjects\\obj\\",
+        "outputPath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",

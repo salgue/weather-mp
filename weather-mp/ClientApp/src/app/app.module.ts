@@ -16,6 +16,7 @@ import { WeathersListComponent } from './weatherSection/weathers-list/weathers-l
 import { ViewWeatherInformationComponent } from './weatherSection/view-weather-information/view-weather-information.component';
 import { DashboardsComponent } from './dashboards/dashboards.component';
 import { WeatherCardComponent } from './shared/weather-card/weather-card.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WeatherCardComponent } from './shared/weather-card/weather-card.compone
     WeathersListComponent,
     ViewWeatherInformationComponent,
     DashboardsComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -1,32 +1,11 @@
-<div class="centered-content">
+<div class="centered-content" *ngIf="dailyForecast.length > 0">
   <div class="content">
     <div class="row carousel">
       <div *ngFor="let item of dailyForecast" class="col-md-2 col-sm-6">
           <app-weather-card [weather]="item"></app-weather-card>
-
-        <!-- <mat-card
-          class="example-card card"
-          (click)="openWeatherModal(item.date)"
-        >
-          <mat-card-header>
-            <mat-card-title class="title">{{
-              item.date | date : "MMMM dd"
-            }}</mat-card-title>
-          </mat-card-header>
-          <p class="temperature">{{ item.temperature | number : "1.0-0" }}°C</p>
-          <div class="icon">
-            <img mat-card-md-image [src]="item.icon" [alt]="item.description" />
-          </div>
-          <mat-card-content class="day-information">
-            <p>
-              <b>Max: </b>{{ item.maxTemperature | number : "1.0-0" }}°C
-              <b>Min: </b>{{ item.minTemperature | number : "1.0-0" }}°C
-            </p>
-            <p>{{ item.description | titlecase }}</p>
-            <p>Wind speed: {{ item.speed }}</p>
-          </mat-card-content>
-        </mat-card> -->
       </div>
     </div>
   </div>
 </div>
+<app-not-found *ngIf="dailyForecast.length == 0"></app-not-found>
+
