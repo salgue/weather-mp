@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace weather.BusinessObjects.Models
 {
-    public class WeatherForecast
+    public class City
     {
-        public List<ForecastItem> List { get; set; }
-        public City City { get; set; }
+        public string Name { get; set; }
     }
 }

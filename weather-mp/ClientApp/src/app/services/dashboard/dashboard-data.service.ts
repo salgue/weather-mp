@@ -4,17 +4,16 @@ import { DashboardUrlQuery } from '../../models/dashboard-url-query';
 import { Dashboard } from 'src/app/models/dashboard';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardDataService {
-
   private _dashboardList: Dashboard[] = [];
-  constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService) {}
 
   getDashboardData(searchData: string) {
     const dashboardUrlQuery: DashboardUrlQuery = {
-      searchData
-    }
+      searchData,
+    };
 
     this.dashboardService.getDashboard(dashboardUrlQuery).subscribe({
       next: (response: Dashboard[]) => {
@@ -24,7 +23,13 @@ export class DashboardDataService {
     });
   }
 
-  get dashboardList(): Dashboard[] { 
+  removeCityFromFavoriteList(value: Dashboard) {
+    this._dashboardList = this._dashboardList.filter(
+      (x) => x.city !== value.city
+    );
+  }
+
+  get dashboardList(): Dashboard[] {
     return this._dashboardList;
   }
 }

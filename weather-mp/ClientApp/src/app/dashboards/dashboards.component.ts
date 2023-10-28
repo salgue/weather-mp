@@ -6,20 +6,28 @@ import { Dashboard } from '../models/dashboard';
 @Component({
   selector: 'app-dashboards',
   templateUrl: './dashboards.component.html',
-  styleUrls: ['./dashboards.component.css']
+  styleUrls: ['./dashboards.component.css'],
 })
 export class DashboardsComponent {
-
-  constructor(private dashboardDataService: DashboardDataService, private favoritesService: FavoritesService) {
+  constructor(
+    private dashboardDataService: DashboardDataService,
+    private favoritesService: FavoritesService
+  ) {
     this.getDashboardData();
-   }
-  
+  }
+
   getDashboardData() {
     if (this.favoritesService.verifyFavoriteCookie()) {
-      const favoriteString = this.favoritesService.getFavoriteCookieValue()
+      const favoriteString = this.favoritesService.getFavoriteListFromCookie();
 
-      this.dashboardDataService.getDashboardData(favoriteString);
+      const searchData = favoriteString.join(',');
+      this.dashboardDataService.getDashboardData(searchData);
     }
+  }
+
+  removeFavorite(dashboardSelected: Dashboard) {
+    this.dashboardDataService.removeCityFromFavoriteList(dashboardSelected);
+    this.favoritesService.removeAsFavorite(dashboardSelected.city);
   }
 
   get dashboardList(): Dashboard[] {

@@ -18,8 +18,16 @@ namespace weather_mp.Controllers
         [Route("GetDashboard")]
         public async Task<IActionResult> GetDashboardData([FromBody] DashboardUrlQuery query)
         {
-            var result = await _dashboardService.GetDashboard();
-            return Ok(result);
+            try
+            {
+                var result = await _dashboardService.GetDashboard(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                
+                return BadRequest();
+            }
         }
     }
 }

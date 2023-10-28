@@ -13,12 +13,14 @@ import { ViewWeatherInformationComponent } from 'src/app/weatherSection/view-wea
 export class WeatherCardComponent {
   @Input() weather!: WeeklyWeather;
 
+  @Input() city: string = '';
   constructor(
     private weatherDataService: WeatherDataService,
     private dialogService: DialogService
   ) {}
   openWeatherModal(searchDate: string) {
-    const searchValue = this.weatherDataService.searchValue;
+    const searchValue =
+      this.city === '' ? this.weatherDataService.searchValue : this.city;
     const dataQuery = <DailyWeatherUrlQuery>{
       searchDate,
       searchValue,

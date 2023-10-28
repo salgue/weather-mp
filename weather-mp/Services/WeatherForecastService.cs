@@ -14,91 +14,6 @@ namespace weather_mp.Services
         {
             var response = await GetWeeklyWeatherFromAPI(searchValue);
             var results = MapWeatherToWeeklyViewModel(response);
-            //var results = new List<WeeklyWeatherVM>()
-            //{
-            //    new WeeklyWeatherVM() {
-            //        Date = "10-27-2023",
-            //        MaxTemperature= 295.82,
-            //        MinTemperature= 299.38,
-            //        Icon = "https://openweathermap.org/img/w/01d.png",
-            //        Description= "clear sky"
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "2",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "3",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "4",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "5",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "6",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "7",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "8",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "9",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "10",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "11",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "12",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "13",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "14",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "15",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    },
-            //    new WeeklyWeatherVM() {
-            //        Date = "16",
-            //        MaxTemperature= 0,
-            //        MinTemperature= 0,
-            //    }
-            //};
             return results;
         }
 
@@ -138,7 +53,7 @@ namespace weather_mp.Services
         private List<WeeklyWeatherVM> MapWeatherToWeeklyViewModel(IEnumerable<IGrouping<DateTime, ForecastItem>> forecastGroups)
         {
             var results = new List<WeeklyWeatherVM>();
-            if(forecastGroups != null)
+            if (forecastGroups != null)
             {
                 foreach (var dayForecast in forecastGroups)
                 {
@@ -153,11 +68,11 @@ namespace weather_mp.Services
                     var weather = new WeeklyWeatherVM();
                     weather.Date = date.ToString("MM/dd/yyyy");
                     weather.MaxTemperature = (maxTemp - 32) / 1.8;
-                    weather.MinTemperature = (minTemp - 32) / 1.8; ;
+                    weather.MinTemperature = (minTemp - 32) / 1.8;
                     weather.Icon = $"https://openweathermap.org/img/w/{icon}.png";
                     weather.Description = description ?? "";
                     weather.Speed = speed.ToString();
-                    weather.Temperature = temperature;
+                    weather.Temperature = (temperature - 32) / 1.8;
 
                     results.Add(weather);
                 }
@@ -169,37 +84,6 @@ namespace weather_mp.Services
         {
             var response = await GetDailyWeatherFromAPI(query);
             var result = MapWeatherToDailyViewModel(response);
-            //var result = new DailyWeatherVM()
-            //{
-            //    Day = "10/28/2023",
-            //    HourlyForecast = new List<HourlyWeatherVM>()
-            //    {
-            //        new HourlyWeatherVM()
-            //        {
-            //            Hour= "02:00",
-            //            MaxTemperature= 55.45000000000002,
-            //            MinTemperature= 55.45000000000002
-            //        },
-            //            new HourlyWeatherVM()
-            //        {
-            //            Hour= "05:00",
-            //            MaxTemperature= 55.45000000000002,
-            //            MinTemperature= 55.45000000000002
-            //        },
-            //            new HourlyWeatherVM()
-            //        {
-            //            Hour= "08:00",
-            //            MaxTemperature= 55.45000000000002,
-            //            MinTemperature= 55.45000000000002
-            //        },
-            //            new HourlyWeatherVM()
-            //        {
-            //            Hour= "11:00",
-            //            MaxTemperature= 55.45000000000002,
-            //            MinTemperature= 55.45000000000002
-            //        },
-            //    }
-            //};
             return result;
         }
 
