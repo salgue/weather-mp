@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace weather.BusinessLogic.QueryObjects
 {
-    internal class DailyWeatherUrlQuery
+    public class DailyWeatherUrlQuery : WeeklyWeatherUrlQuery
     {
+        public string SearchDate { get; set; }
     }
 }
