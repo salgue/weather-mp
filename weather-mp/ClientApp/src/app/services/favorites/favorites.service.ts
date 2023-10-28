@@ -39,14 +39,16 @@ export class FavoritesService {
   removeAsFavorite(valueToStore: string) {
     if (this.verifyFavoriteCookie()) {
       const favoriteList = this.getFavoriteListFromCookie();
-      const filteredFavoriteList = favoriteList.filter(
-        (f: string) => f !== valueToStore
-      );
-      if (filteredFavoriteList.length > 0) {
-        this.setFavoriteCookie(JSON.stringify(filteredFavoriteList));
-      } else {
-        this.cookieService.deleteCookie('favorite');
-      }
+      if (favoriteList.includes(valueToStore)) {
+        const filteredFavoriteList = favoriteList.filter(
+          (f: string) => f !== valueToStore.toLowerCase()
+        );
+        if (filteredFavoriteList.length > 0) {
+          this.setFavoriteCookie(JSON.stringify(filteredFavoriteList));
+        } else {
+          this.cookieService.deleteCookie('favorite');
+        }
+      }      
     }
   }
 

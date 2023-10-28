@@ -33,6 +33,14 @@ export class WeatherSearchComponent {
      
   }
 
+  changeFavoriteValue() {
+    const favoriteValue = this.favoriteValueControl.value;
+    if (favoriteValue) {
+      this.favoritesService.removeAsFavorite(this.searchValueControl.value);
+    }
+    this.favoriteValueControl.setValue(!favoriteValue);
+  }
+
   get searchForm(): FormGroup {
     return this.weatherFactoryService.searchForm;
   }

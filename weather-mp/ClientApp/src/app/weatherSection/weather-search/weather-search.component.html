@@ -15,9 +15,11 @@
       <button mat-button class="search-button" (click)="search()">
         <mat-icon>search</mat-icon>
       </button>
-      <mat-checkbox class="example-margin custom-checkbox-style" formControlName="favorite"
-        >Mark as Favorite</mat-checkbox
-      >
+      <button mat-button class="search-button" matTooltip="Mark as Favorite" (click)="changeFavoriteValue()">
+        <mat-icon *ngIf="!favoriteValueControl.value">favorite_border</mat-icon>
+        <mat-icon *ngIf="favoriteValueControl.value">favorite</mat-icon>
+        <span>Mark as Favorite</span>
+      </button>
     </form>
   </div>
 </div>
