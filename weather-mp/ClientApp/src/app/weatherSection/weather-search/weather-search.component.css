@@ -1,0 +1,15 @@
+.search{
+   display: grid;
+   justify-content: flex-end;
+}
+
+.search-input {
+    grid-column: 1/2;
+}
+.search-button{
+    grid-column: 2/2;
+    border-radius: 10px;
+    /* background-color: #498da5; */
+    color: #498da5 !important;
+    margin-left: 2px;
+}

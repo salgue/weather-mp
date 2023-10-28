@@ -1,0 +1,11 @@
+<div class="search">
+    <div>
+        <form [formGroup]="searchForm">
+            <mat-form-field>
+                <input matInput [formControl]="searchValueControl" name="searchValue"
+                    placeholder="City Name or ZipCode" />
+            </mat-form-field>
+            <button mat-button class="search-button" (click)="search()"><mat-icon>search</mat-icon></button>
+        </form>
+    </div>
+</div>
