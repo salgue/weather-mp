@@ -3,7 +3,6 @@ import { WeeklyWeatherUrlQuery } from 'src/app/models/weekly-weather-url-query';
 import { WeatherSearchService } from './weather-search.service';
 import { WeeklyWeather } from 'src/app/models/weekly-weather';
 import { FavoritesService } from '../favorites/favorites.service';
-import { SpinnerService } from '../spinner/spinner.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +12,7 @@ export class WeatherDataService {
   
   searchValue: string = '';
   constructor(private weatherSearchService: WeatherSearchService,
-    private favoritesService: FavoritesService, private spinnerService: SpinnerService) {}
+    private favoritesService: FavoritesService) {}
 
   resetValues() {
     this._dailyForecast = [];
@@ -21,7 +20,6 @@ export class WeatherDataService {
   }
   
   getWeatherData(weatherUrlQuery: WeeklyWeatherUrlQuery, favorite: boolean = false) {
-    this.spinnerService.startSpinner();
     this.weatherSearchService
       .getWeatherByCityorZipCode(weatherUrlQuery)
       .subscribe({
@@ -36,7 +34,6 @@ export class WeatherDataService {
               );  
             }
           }
-          this.spinnerService.closeSpinner();
         },
       });
   }
