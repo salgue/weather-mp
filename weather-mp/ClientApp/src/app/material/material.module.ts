@@ -9,6 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -22,6 +26,9 @@ import { MatTableModule } from '@angular/material/table';
     MatFormFieldModule,
     MatIconModule,
     MatTableModule,
+    MatGridListModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -34,6 +41,9 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatDialogModule,
     MatTableModule,
+    MatGridListModule,
+    MatCheckboxModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule {}

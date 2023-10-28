@@ -33,6 +33,6 @@ export class ViewWeatherInformationComponent {
   }
 
   get displayedColumns() {
-    return ['hour', 'maxTemp','minTemp']
+    return ['hour','temperature','maxTemp','minTemp','description','icon']
   }
 }

@@ -13,3 +13,8 @@
     color: #498da5 !important;
     margin-left: 2px;
 }
+.custom-checkbox-style {
+  mat-checkbox.mat-checkbox-indigo .mat-checkbox-background {
+    background-color: mat-color(#498da5);
+  }
+}

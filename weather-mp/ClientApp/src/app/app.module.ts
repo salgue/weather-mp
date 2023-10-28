@@ -14,6 +14,7 @@ import { MaterialModule } from './material/material.module';
 import { WeatherSearchComponent } from './weatherSection/weather-search/weather-search.component';
 import { WeathersListComponent } from './weatherSection/weathers-list/weathers-list.component';
 import { ViewWeatherInformationComponent } from './weatherSection/view-weather-information/view-weather-information.component';
+import { DashboardsComponent } from './dashboards/dashboards.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,15 @@ import { ViewWeatherInformationComponent } from './weatherSection/view-weather-i
     FetchDataComponent,
     WeatherSearchComponent,
     WeathersListComponent,
-    ViewWeatherInformationComponent
+    ViewWeatherInformationComponent,
+    DashboardsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: DashboardsComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),

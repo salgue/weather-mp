@@ -22,13 +22,26 @@
 }
 .card {
   width: 275px;
-  height: 300px;
+  height: 350px;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
   position: relative;
   transition: transform 0.3s;
 }
 .card:hover {
   box-shadow: 10px 5px 5px black;
   transform: scale(1.05);
+}
+
+.title,.day-information, .temperature {
+  color: #498da5;
+}
+.temperature {
+  font-size: 32px;
+}
+
+.title,
+.icon {
+  justify-content: center;
 }

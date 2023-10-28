@@ -1,10 +1,9 @@
 export interface WeeklyWeather{
-    Date:  string;
-    MinTemperature: number;
-    MaxTemperature: number;
-    Icon: string;
-    Description: string;
-    Speed: string;
-    FeelsLike: number;
-    Humidity: number ;
+    date:  string;
+    minTemperature: number;
+    maxTemperature: number;
+    icon: string;
+    description: string;
+    speed: string;
+    temperature: number;
 }

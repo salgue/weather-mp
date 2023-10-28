@@ -1,21 +1,30 @@
 <div class="centered-content">
-    <div class="content">
-        <div class="row carousel">
-            <div *ngFor="let item of dailyForecast" class="col-md-3 col-sm-6">
-                <mat-card class="example-card card" (click)="openWeatherModal(item.date)">
-                    <mat-card-header>
-                        <mat-card-title-group>
-                            <mat-card-title>{{ item.maxTemperature | number: '1.0-0'}} / {{item.minTemperature| number:
-                                '1.0-0'}} °C</mat-card-title>
-                            <mat-card-subtitle> {{ item.date | date: 'MMM dd' }}</mat-card-subtitle>
-                            <img mat-card-md-image [src]=item.icon alt="Image of a Shiba Inu" />
-                        </mat-card-title-group>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p> {{item.description | titlecase}}</p>
-                    </mat-card-content>
-                </mat-card>
-            </div>
-        </div>
+  <div class="content">
+    <div class="row carousel">
+      <div *ngFor="let item of dailyForecast" class="col-md-3 col-sm-6">
+        <mat-card
+          class="example-card card"
+          (click)="openWeatherModal(item.date)"
+        >
+          <mat-card-header>
+            <mat-card-title class="title">{{
+              item.date | date : "MMMM dd"
+            }}</mat-card-title>
+          </mat-card-header>
+          <p class="temperature">{{ item.temperature | number : "1.0-0" }}°C</p>
+          <div class="icon">
+            <img mat-card-md-image [src]="item.icon" [alt]="item.description" />
+          </div>
+          <mat-card-content class="day-information">
+            <p>
+              <b>Max: </b>{{ item.maxTemperature | number : "1.0-0" }}°C
+              <b>Min: </b>{{ item.minTemperature | number : "1.0-0" }}°C
+            </p>
+            <p>{{ item.description | titlecase }}</p>
+            <p>Wind speed: {{ item.speed }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
+  </div>
 </div>

@@ -2,5 +2,8 @@
     display: flex !important;
     justify-content: space-between;
     align-items: flex-end;
-    
+    color: #498da5;
+}
+th,td, .close-button {
+    color: #498da5;
 }

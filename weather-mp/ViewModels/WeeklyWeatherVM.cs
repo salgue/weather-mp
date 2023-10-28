@@ -8,7 +8,6 @@
         public string Icon { get; set; }
         public string Description { get; set; }
         public string Speed { get; set; }
-        public double FeelsLike { get; set; }
-        public int Humidity { get; set; }
+        public double Temperature { get; set; } 
     }
 }

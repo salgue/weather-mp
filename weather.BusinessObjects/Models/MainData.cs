@@ -11,6 +11,6 @@ namespace weather.BusinessObjects.Models
         public double Temp_Min { get; set; }
         public double Temp_Max { get; set; }
         public double Feels_Like { get; set; }
-        public int Humidity { get; set; }
+        public double Temp { get; set; }
     }
 }
