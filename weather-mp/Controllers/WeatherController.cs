@@ -1,15 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using weather.BusinessLogic.QueryObjects;
+using weather_mp.Services.Interfaces;
 
 namespace weather_mp.Controllers
 {
 
     [ApiController]
     [Route("[controller]")]
-    public class WeatherController : Controller
+    public class WeatherController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IWeatherService _weatherService;
+        public WeatherController(IWeatherService weatherService)
         {
-            return View();
+            _weatherService = weatherService;
+        }
+
+        [HttpPost]
+        [Route("GetWeeklyWeather")]
+        public async Task<IActionResult> GetWeeklyWeather([FromBody] WeeklyWeatherUrlQuery urlQuery)
+        {
+            var results = await _weatherService.GetWeeklyWeather(urlQuery.SearchValue);
+            return Ok(results);
+        }
+
+        [HttpPost]
+        [Route("GetDailyWeather")]
+        public async Task<IActionResult> GetDailyWeather([FromBody] DailyWeatherUrlQuery urlQuery)
+        {
+            var results = await _weatherService.GetDailyWeather(urlQuery);
+            return Ok(results);
         }
     }
 }

@@ -1,0 +1,12 @@
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\bin\Debug\net6.0\weather.BusinessLogic.deps.json
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\bin\Debug\net6.0\weather.BusinessLogic.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\bin\Debug\net6.0\weather.BusinessLogic.pdb
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.csproj.AssemblyReference.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.AssemblyInfo.cs
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\refint\weather.BusinessLogic.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.pdb
+C:\Users\missa\source\repos\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\ref\weather.BusinessLogic.dll

@@ -1,0 +1,12 @@
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\bin\Debug\net6.0\weather.BusinessObjects.deps.json
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\bin\Debug\net6.0\weather.BusinessObjects.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\bin\Debug\net6.0\weather.BusinessObjects.pdb
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.csproj.AssemblyReference.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.AssemblyInfoInputs.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.AssemblyInfo.cs
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.csproj.CoreCompileInputs.cache
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\refint\weather.BusinessObjects.dll
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\weather.BusinessObjects.pdb
+C:\Users\missa\source\repos\weather-mp\weather.BusinessObjects\obj\Debug\net6.0\ref\weather.BusinessObjects.dll
