@@ -1,0 +1,6 @@
+.title-container {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+}

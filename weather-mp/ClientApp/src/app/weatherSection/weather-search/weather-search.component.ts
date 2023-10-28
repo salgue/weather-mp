@@ -26,6 +26,7 @@ export class WeatherSearchComponent {
     const weatherUrlQuery = <WeeklyWeatherUrlQuery>this.searchForm.value;
 
     this.weatherDataService.getWeatherData(weatherUrlQuery);
+    this.weatherDataService.searchValue = weatherUrlQuery.searchValue;
   }
 
   get searchForm(): FormGroup {

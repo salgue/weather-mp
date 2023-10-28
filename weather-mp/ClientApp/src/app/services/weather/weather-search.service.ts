@@ -22,8 +22,8 @@ export class WeatherSearchService {
     return this.http.post<WeeklyWeather[]>(url, weatherUrlQuery);
   }
 
-  getDailyWeather(weatherUrlQuery: DailyWeatherUrlQuery): Observable<DailyWeather[]> {
+  getDailyWeather(weatherUrlQuery: DailyWeatherUrlQuery): Observable<DailyWeather> {
     const url = `${this._baseUrl}weather/GetDailyWeather`;
-    return this.http.post<DailyWeather[]>(url, weatherUrlQuery);
+    return this.http.post<DailyWeather>(url, weatherUrlQuery);
   }
 }

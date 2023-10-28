@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { DialogService } from 'src/app/services/dialog/dialog.service';
 import { WeatherDataService } from 'src/app/services/weather/weather-data.service';
-import { WeatherFormFactoryService } from 'src/app/services/weather/weather-form-factory.service';
+import { ViewWeatherInformationComponent } from '../view-weather-information/view-weather-information.component';
+import { DailyWeatherUrlQuery } from 'src/app/models/daily-weather-url-query';
 
 @Component({
   selector: 'app-weathers-list',
@@ -11,15 +11,22 @@ import { WeatherFormFactoryService } from 'src/app/services/weather/weather-form
 })
 export class WeathersListComponent {
   constructor(
-    private weatherDataService: WeatherDataService
+    private weatherDataService: WeatherDataService,
+    private dialogService: DialogService,
   ) {}
 
-  openWeatherModal() {
-
+  openWeatherModal(searchDate: string) {
+    console.log(this.weatherDataService.searchValue);
+    const searchValue = this.weatherDataService.searchValue;
+    const dataQuery = <DailyWeatherUrlQuery>{
+      searchDate,
+      searchValue
+    }
+    console.log(dataQuery);
+    this.dialogService.openDialog(ViewWeatherInformationComponent, dataQuery);
   }
 
   get dailyForecast(): any[] {
     return this.weatherDataService.dailyForecast;
   }
-
 }

@@ -8,6 +8,8 @@ import { WeeklyWeather } from 'src/app/models/weekly-weather';
 })
 export class WeatherDataService {
   private _dailyForecast: WeeklyWeather[] = [];
+  
+  searchValue: string = '';
   constructor(private weatherSearchService: WeatherSearchService) {}
 
   getWeatherData(weatherUrlQuery: WeeklyWeatherUrlQuery) {

@@ -7,6 +7,6 @@ namespace weather_mp.Services.Interfaces
     public interface IWeatherService : IDependencyScoped
     {
         Task<List<WeeklyWeatherVM>> GetWeeklyWeather(string searchValue);
-        Task<List<DailyWeatherVM>> GetDailyWeather(DailyWeatherUrlQuery query);
+        Task<DailyWeatherVM> GetDailyWeather(DailyWeatherUrlQuery query);
     }
 }

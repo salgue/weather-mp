@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { WeatherSearchComponent } from './weatherSection/weather-search/weather-search.component';
 import { WeathersListComponent } from './weatherSection/weathers-list/weathers-list.component';
+import { ViewWeatherInformationComponent } from './weatherSection/view-weather-information/view-weather-information.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { WeathersListComponent } from './weatherSection/weathers-list/weathers-l
     CounterComponent,
     FetchDataComponent,
     WeatherSearchComponent,
-    WeathersListComponent
+    WeathersListComponent,
+    ViewWeatherInformationComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
