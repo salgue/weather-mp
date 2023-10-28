@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "weather-mp", "weather-mp\we
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "weather.BusinessObjects", "weather.BusinessObjects\weather.BusinessObjects.csproj", "{6556FD58-395D-4143-818B-A66A2FE5E4D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "weather.BusinessLogic", "weather.BusinessLogic\weather.BusinessLogic.csproj", "{AEFADB53-A381-4E57-BBB0-49C167559648}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6556FD58-395D-4143-818B-A66A2FE5E4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6556FD58-395D-4143-818B-A66A2FE5E4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6556FD58-395D-4143-818B-A66A2FE5E4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEFADB53-A381-4E57-BBB0-49C167559648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFADB53-A381-4E57-BBB0-49C167559648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFADB53-A381-4E57-BBB0-49C167559648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFADB53-A381-4E57-BBB0-49C167559648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
