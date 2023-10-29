@@ -9,7 +9,11 @@
 .search-button{
     grid-column: 2/2;
     border-radius: 10px;
-    /* background-color: #498da5; */
+    color: #498da5 !important;
+    margin-left: 2px;
+}
+.favorite-button{
+    border-radius: 10px;
     color: #498da5 !important;
     margin-left: 2px;
 }

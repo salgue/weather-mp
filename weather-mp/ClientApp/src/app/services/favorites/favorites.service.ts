@@ -40,7 +40,7 @@ export class FavoritesService {
   removeAsFavorite(valueToStore: string) {
     if (this.verifyFavoriteCookie()) {
       const favoriteList = this.getFavoriteListFromCookie();
-      if (favoriteList.includes(valueToStore)) {
+      if (favoriteList.includes(valueToStore.toLowerCase())) {
         const filteredFavoriteList = favoriteList.filter(
           (f: string) => f !== valueToStore.toLowerCase()
         );

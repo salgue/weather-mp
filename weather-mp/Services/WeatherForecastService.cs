@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text.Json;
+using weather.BusinessLogic.Managers;
 using weather.BusinessLogic.QueryObjects;
 using weather.BusinessObjects.Models;
 using weather_mp.Services.Interfaces;
@@ -9,48 +10,37 @@ namespace weather_mp.Services
 {
     public class WeatherForecastService : IWeatherService
     {
+        private readonly IExternalAPIManager _externalAPIManager;
 
-        public async Task<List<WeeklyWeatherVM>> GetWeeklyWeather(string searchValue)
+        public WeatherForecastService(IExternalAPIManager externalAPIManager) { 
+            _externalAPIManager = externalAPIManager;
+        }
+    public async Task<List<WeeklyWeatherVM>> GetWeeklyWeather(string searchValue)
         {
-            var response = await GetWeeklyWeatherFromAPI(searchValue);
-            var results = MapWeatherToWeeklyViewModel(response);
+            var response = await BuildWeeklyWeatherData(searchValue);
+            var results = MapDataToWeeklyViewModel(response);
             return results;
         }
 
-        private async Task<IEnumerable<IGrouping<DateTime, ForecastItem>>> GetWeeklyWeatherFromAPI(string city)
+        private async Task<IEnumerable<IGrouping<DateTime, ForecastItem>>> BuildWeeklyWeatherData(string city)
         {
             IEnumerable<IGrouping<DateTime, ForecastItem>>? forecastGroups = null;
             using (HttpClient client = new HttpClient())
             {
-                string url = $"http://api.openweathermap.org/data/2.5/forecast?q={city}&cnt=40&units=imperial&appid=95a040a7cfb018de8fbb8ff1f488e445";
+                var forecast = await _externalAPIManager.GetDataFromExternalAPI(city, true, client);
 
-                HttpResponseMessage response = await client.GetAsync(url);
+                DateTime currentDate = DateTime.Now.Date;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-
-                    var options = new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-
-                    var forecast = JsonSerializer.Deserialize<WeatherForecast>(content, options);
-
-                    DateTime currentDate = DateTime.Now.Date;
-
-                    var dailyForecast = forecast.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date >= currentDate);
+                var dailyForecast = forecast.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date >= currentDate);
 
 
-                    forecastGroups = dailyForecast.GroupBy(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).Date);
+                forecastGroups = dailyForecast.GroupBy(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).Date);
 
-
-                }
                 return forecastGroups;
             }
         }
 
-        private List<WeeklyWeatherVM> MapWeatherToWeeklyViewModel(IEnumerable<IGrouping<DateTime, ForecastItem>> forecastGroups)
+        private List<WeeklyWeatherVM> MapDataToWeeklyViewModel(IEnumerable<IGrouping<DateTime, ForecastItem>> forecastGroups)
         {
             var results = new List<WeeklyWeatherVM>();
             if (forecastGroups != null)
@@ -82,42 +72,28 @@ namespace weather_mp.Services
 
         public async Task<DailyWeatherVM> GetDailyWeather(DailyWeatherUrlQuery query)
         {
-            var response = await GetDailyWeatherFromAPI(query);
-            var result = MapWeatherToDailyViewModel(response);
+            var response = await BuildDailyWeatherData(query);
+            var result = MapDataToDailyViewModel(response);
             return result;
         }
 
-        private async Task<List<ForecastItem>> GetDailyWeatherFromAPI(DailyWeatherUrlQuery query)
+        private async Task<List<ForecastItem>> BuildDailyWeatherData(DailyWeatherUrlQuery query)
         {
             var dailyForecast = new List<ForecastItem>();
             using (HttpClient client = new HttpClient())
             {
-                string url = $"http://api.openweathermap.org/data/2.5/forecast?q={query.SearchValue}&units=imperial&appid=95a040a7cfb018de8fbb8ff1f488e445";
+                var forecast = await _externalAPIManager.GetDataFromExternalAPI(query.SearchValue, false, client);
 
-                HttpResponseMessage response = await client.GetAsync(url);
+                var dateArray = query.SearchDate.Split('/');
+                DateTime searchDate = new DateTime(int.Parse(dateArray[2]), int.Parse(dateArray[0]), int.Parse(dateArray[1]));
 
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-
-                    var options = new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    };
-
-                    var forecast = JsonSerializer.Deserialize<WeatherForecast>(content, options);
-
-                    var dateArray = query.SearchDate.Split('/');
-                    DateTime searchDate = new DateTime(int.Parse(dateArray[2]), int.Parse(dateArray[0]), int.Parse(dateArray[1]));
-
-                    dailyForecast = forecast?.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date == searchDate.Date);
-                }
+                dailyForecast = forecast?.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date == searchDate.Date);
 
                 return dailyForecast ?? new List<ForecastItem>();
             }
         }
 
-        private DailyWeatherVM MapWeatherToDailyViewModel(List<ForecastItem> forecastList)
+        private DailyWeatherVM MapDataToDailyViewModel(List<ForecastItem> forecastList)
         {
             if (forecastList.Count == 0) return null;
 

@@ -22,3 +22,6 @@ C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\obj\
 C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\refint\weather.BusinessLogic.dll
 C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.pdb
 C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\ref\weather.BusinessLogic.dll
+C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\bin\Debug\net6.0\weather.BusinessObjects.dll
+C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\bin\Debug\net6.0\weather.BusinessObjects.pdb
+C:\Users\missa\OneDrive\Escritorio\weather\weather-mp\weather.BusinessLogic\obj\Debug\net6.0\weather.BusinessLogic.csproj.CopyComplete

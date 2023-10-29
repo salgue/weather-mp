@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using weather.BusinessLogic.Managers;
 using weather.BusinessLogic.QueryObjects;
 using weather.BusinessObjects.Models;
 using weather_mp.Services.Interfaces;
@@ -8,16 +9,19 @@ namespace weather_mp.Services
 {
     public class DashboardService : IDashboardService
     {
-        public DashboardService() { }
+        private readonly IExternalAPIManager _externalAPIManager;
+        public DashboardService(IExternalAPIManager externalAPIManager) { 
+            _externalAPIManager = externalAPIManager;
+        }
 
         public async Task<List<DashboardVM>> GetDashboard(DashboardUrlQuery query)
         {
-            var response = await GetDataFromApi(query);
+            var response = await BuildDashboardData(query);
             var results = MapResponseToDashboardViewModel(response);
             return results;
         }
 
-        private async Task<List<WeatherForecastVM>> GetDataFromApi(DashboardUrlQuery query)
+        private async Task<List<WeatherForecastVM>> BuildDashboardData(DashboardUrlQuery query)
         {
             var weathersForecasts = new List<WeatherForecastVM>();
             var forecastGroups = new List<IEnumerable<IGrouping<DateTime, ForecastItem>>>();
@@ -27,30 +31,17 @@ namespace weather_mp.Services
                 foreach (var item in collection)
                 {
                     var weathersForecast = new WeatherForecastVM();
-                    string url = $"http://api.openweathermap.org/data/2.5/forecast?q={item}&cnt=40&units=imperial&appid=95a040a7cfb018de8fbb8ff1f488e445";
-
-                    HttpResponseMessage response = await client.GetAsync(url);
-
-                    if (response.IsSuccessStatusCode)
+                    var forecast = await _externalAPIManager.GetDataFromExternalAPI(item, true, client);
+                    if(forecast == null)
                     {
-                        string content = await response.Content.ReadAsStringAsync();
-
-                        var options = new JsonSerializerOptions
-                        {
-                            PropertyNameCaseInsensitive = true
-                        };
-
-                        var forecast = JsonSerializer.Deserialize<WeatherForecast>(content, options);
-
-                        DateTime currentDate = DateTime.Now.Date;
-
-                        var dailyForecast = forecast?.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date >= currentDate) ?? new List<ForecastItem>();
-
-                        weathersForecast.City = forecast.City.Name;
-                        weathersForecast.ForecastGroup = dailyForecast.GroupBy(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).Date);
-
-                        weathersForecasts.Add(weathersForecast);
+                        continue;
                     }
+                    DateTime currentDate = DateTime.Now.Date;
+
+                    var dailyForecast = forecast?.List.FindAll(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).LocalDateTime.Date >= currentDate) ?? new List<ForecastItem>();
+                    weathersForecast.City = forecast.City.Name;
+                    weathersForecast.ForecastGroup = dailyForecast.GroupBy(f => DateTimeOffset.FromUnixTimeSeconds(f.Dt).Date);
+                    weathersForecasts.Add(weathersForecast);
                 }
                 return weathersForecasts;
             }

@@ -36,6 +36,7 @@ export class WeatherSearchComponent {
   changeFavoriteValue() {
     const favoriteValue = this.favoriteValueControl.value;
     if (favoriteValue) {
+      console.log(1)
       this.favoritesService.removeAsFavorite(this.searchValueControl.value);
     }
     this.favoriteValueControl.setValue(!favoriteValue);

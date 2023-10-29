@@ -4,7 +4,7 @@ export const COOKIES_TYPES = {
 
 export const WEATHER_ROUTES = {
     GetWeeklyRoute: 'weather/GetWeeklyWeather',
-    GetDailyRoute: 'weather/GetDaylyWeather'
+    GetDailyRoute: 'weather/GetDailyWeather'
 };
 
 export const DASHBOARD_ROUTES = {

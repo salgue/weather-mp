@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "weather.BusinessObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/weather.BusinessObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/weather.BusinessObjects.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "weather.BusinessObjects/1.0.0": {
+      "type": "project",
+      "path": "../weather.BusinessObjects/weather.BusinessObjects.csproj",
+      "msbuildProject": "../weather.BusinessObjects/weather.BusinessObjects.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "weather.BusinessObjects >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\missa\\.nuget\\packages\\": {},
@@ -43,7 +62,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj": {
+              "projectPath": "C:\\Users\\missa\\OneDrive\\Escritorio\\weather\\weather-mp\\weather.BusinessObjects\\weather.BusinessObjects.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

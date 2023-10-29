@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "weather.BusinessLogic/1.0.0": {
+        "dependencies": {
+          "weather.BusinessObjects": "1.0.0"
+        },
         "runtime": {
           "weather.BusinessLogic.dll": {}
+        }
+      },
+      "weather.BusinessObjects/1.0.0": {
+        "runtime": {
+          "weather.BusinessObjects.dll": {}
         }
       }
     }
   },
   "libraries": {
     "weather.BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "weather.BusinessObjects/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
