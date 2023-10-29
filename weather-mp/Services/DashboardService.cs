@@ -10,8 +10,11 @@ namespace weather_mp.Services
     public class DashboardService : IDashboardService
     {
         private readonly IExternalAPIManager _externalAPIManager;
-        public DashboardService(IExternalAPIManager externalAPIManager) { 
+        private readonly IConfiguration _configuration;
+        public DashboardService(IExternalAPIManager externalAPIManager, IConfiguration configuration)
+        {
             _externalAPIManager = externalAPIManager;
+            _configuration = configuration;
         }
 
         public async Task<List<DashboardVM>> GetDashboard(DashboardUrlQuery query)
@@ -31,8 +34,10 @@ namespace weather_mp.Services
                 foreach (var item in collection)
                 {
                     var weathersForecast = new WeatherForecastVM();
-                    var forecast = await _externalAPIManager.GetDataFromExternalAPI(item, true, client);
-                    if(forecast == null)
+                    var apiUrl = _configuration["AppSettings:ApiUrl"];
+                    var apiKey = _configuration["AppSettings:ApiKey"];
+                    var forecast = await _externalAPIManager.GetDataFromExternalAPI(item, false, client, apiUrl, apiKey);
+                    if (forecast == null)
                     {
                         continue;
                     }

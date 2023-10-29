@@ -11,9 +11,10 @@ namespace weather_mp.Services
     public class WeatherForecastService : IWeatherService
     {
         private readonly IExternalAPIManager _externalAPIManager;
-
-        public WeatherForecastService(IExternalAPIManager externalAPIManager) { 
+        private readonly IConfiguration _configuration;
+        public WeatherForecastService(IExternalAPIManager externalAPIManager, IConfiguration configuration) { 
             _externalAPIManager = externalAPIManager;
+            _configuration = configuration;
         }
     public async Task<List<WeeklyWeatherVM>> GetWeeklyWeather(string searchValue)
         {
@@ -27,7 +28,9 @@ namespace weather_mp.Services
             IEnumerable<IGrouping<DateTime, ForecastItem>>? forecastGroups = null;
             using (HttpClient client = new HttpClient())
             {
-                var forecast = await _externalAPIManager.GetDataFromExternalAPI(city, true, client);
+                var apiUrl = _configuration["AppSettings:ApiUrl"];
+                var apiKey = _configuration["AppSettings:ApiKey"];
+                var forecast = await _externalAPIManager.GetDataFromExternalAPI(city, false, client, apiUrl, apiKey);
 
                 DateTime currentDate = DateTime.Now.Date;
 
@@ -82,7 +85,9 @@ namespace weather_mp.Services
             var dailyForecast = new List<ForecastItem>();
             using (HttpClient client = new HttpClient())
             {
-                var forecast = await _externalAPIManager.GetDataFromExternalAPI(query.SearchValue, false, client);
+                var apiUrl = _configuration["AppSettings:ApiUrl"];
+                var apiKey = _configuration["AppSettings:ApiKey"];
+                var forecast = await _externalAPIManager.GetDataFromExternalAPI(query.SearchValue, false, client, apiUrl, apiKey);
 
                 var dateArray = query.SearchDate.Split('/');
                 DateTime searchDate = new DateTime(int.Parse(dateArray[2]), int.Parse(dateArray[0]), int.Parse(dateArray[1]));

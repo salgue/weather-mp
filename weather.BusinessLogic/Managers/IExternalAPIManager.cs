@@ -10,6 +10,6 @@ namespace weather.BusinessLogic.Managers
 {
     public interface IExternalAPIManager : IDependencyScoped
     {
-        Task<WeatherForecast> GetDataFromExternalAPI(string query, bool addQty, HttpClient client);
+        Task<WeatherForecast> GetDataFromExternalAPI(string query, bool addQty, HttpClient client, string url, string apiKey);
     }
 }

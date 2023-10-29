@@ -11,9 +11,9 @@ namespace weather.BusinessLogic
 {
     public class ExternalAPIManager : IExternalAPIManager
     {
-        public async Task<WeatherForecast> GetDataFromExternalAPI(string query, bool addQty, HttpClient client)
+        public async Task<WeatherForecast> GetDataFromExternalAPI(string query, bool addQty, HttpClient client,string apiUrl, string apiKey)
         {
-            string url = $"http://api.openweathermap.org/data/2.5/forecast?q={query}&units=imperial&appid=95a040a7cfb018de8fbb8ff1f488e445";
+            string url = $"{apiUrl}q={query}&units=imperial&appid={apiKey}";
             if (addQty)
             {
                 url += "&cnt=40";
