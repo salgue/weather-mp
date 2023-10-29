@@ -7,6 +7,7 @@
           [formControl]="searchValueControl"
           name="searchValue"
           placeholder="City Name or ZipCode"
+          class="search-input"
         />
         <mat-error *ngIf="searchValueControl.errors && searchValueControl.errors.required">
           Must enter a value for search.
@@ -15,7 +16,7 @@
       <button mat-button class="search-button" (click)="search()">
         <mat-icon>search</mat-icon>
       </button>
-      <button mat-button class="search-button" matTooltip="Mark as Favorite" (click)="changeFavoriteValue()">
+      <button mat-button class="favorite-button" matTooltip="Mark as Favorite" (click)="changeFavoriteValue()">
         <mat-icon *ngIf="!favoriteValueControl.value">favorite_border</mat-icon>
         <mat-icon *ngIf="favoriteValueControl.value">favorite</mat-icon>
         <span>Mark as Favorite</span>

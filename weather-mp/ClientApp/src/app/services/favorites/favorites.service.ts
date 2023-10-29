@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookiesService } from '../cookies/cookies.service';
+import { COOKIES_TYPES } from 'src/app/utils/consts';
 
 @Injectable({
   providedIn: 'root',
@@ -8,19 +9,19 @@ export class FavoritesService {
   constructor(private cookieService: CookiesService) {}
 
   setFavoriteCookie(value: string) {
-    this.cookieService.saveCookie('favorite', value);
+    this.cookieService.saveCookie(COOKIES_TYPES.Favorite_Cookie, value);
   }
 
   verifyFavoriteCookie(): boolean {
-    return this.cookieService.verifyCookiExist('favorite');
+    return this.cookieService.verifyCookiExist(COOKIES_TYPES.Favorite_Cookie);
   }
 
   getFavoriteListFromCookie(): string[] {
-    return JSON.parse(this.cookieService.getCookie('favorite'));
+    return JSON.parse(this.cookieService.getCookie(COOKIES_TYPES.Favorite_Cookie));
   }
 
   getFavoriteCookieValue() {
-    return this.cookieService.getCookie('favorite');
+    return this.cookieService.getCookie(COOKIES_TYPES.Favorite_Cookie);
   }
 
   setAsFavorite(valueToStore: string) {
@@ -31,7 +32,7 @@ export class FavoritesService {
       if (!favoriteList.includes(valueToStore)) {
         favoriteList.push(valueToStore);
         this.setFavoriteCookie(JSON.stringify(favoriteList));
-        this.cookieService.saveCookie('favorite', JSON.stringify(favoriteList));
+        this.cookieService.saveCookie(COOKIES_TYPES.Favorite_Cookie, JSON.stringify(favoriteList));
       }
     }
   }
@@ -46,7 +47,7 @@ export class FavoritesService {
         if (filteredFavoriteList.length > 0) {
           this.setFavoriteCookie(JSON.stringify(filteredFavoriteList));
         } else {
-          this.cookieService.deleteCookie('favorite');
+          this.cookieService.deleteCookie(COOKIES_TYPES.Favorite_Cookie);
         }
       }      
     }
